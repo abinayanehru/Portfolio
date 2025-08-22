@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Style</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Arial', sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: -1;
+    }
+
+    .intro-section {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 30px;
+      left: 50px;
+      display: flex;
+      gap: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      opacity: 1;
+      font-weight: bold;
+    }
+
+    .social-icons {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      display: flex;
+      gap: 20px;
+      font-size: 20px;
+      color: white;
+    }
+
+    .intro-text {
+      position: absolute;
+      right: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: right;
+      color: white;
+    }
+
+    .intro-text h1 {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .intro-text p {
+      font-size: 18px;
+      margin-top: 10px;
+      letter-spacing: 2px;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      color: white;
+      opacity: 0.7;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .hide-scroll {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+
+    /* Projects Section */
+    #projects {
+      color: white;
+      padding: 100px 50px;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .projects-title {
+      font-size: 35px;
+      font-weight: bold;
+      margin-bottom: 60px;
+    }
+
+    .project-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .project-box {
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .project-box:hover {
+      transform: scale(1.05);
+    }
+
+    .project-box img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      background-color: #000;
+    }
+
+    .project-description {
+      padding: 20px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #ddd;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="video-bg" autoplay muted loop playsinline>
+  <source src="media/video.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Intro Section -->
+  <section class="intro-section">
+    <div class="navbar">
+      <a href="#" class="active">WORKS</a>
+      <a href="contact.html">CONTACT</a>
+      <a href="bio.html">BIO</a>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/abinaya-n-948027298/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/abinayanehru" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://mail.google.com/mail/?view=cm&to=abinaya12asm21@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <div class="intro-text">
+      <h1>ABINAYA</h1>
+      <p>WEB DESIGNER</p>
+    </div>
+
+    <div class="scroll-down" id="scrollArrow" onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- Replace only the projects section with this inside main.html -->
+<section id="projects">
+  <div class="projects-title">Projects</div>
+  <div class="project-grid">
+
+    <a href="https://github.com/abinayanehru/CODTECHTASK1" target="_blank" class="project-box">
+      <img src="media/project1.png" alt="Project 1">
+      <div class="project-description">
+        <strong>Hospital Records System</strong><br/>
+        A Hospital Management System (HMS) streamlines hospital operations by integrating various functions into one platform.
+      </div>
+    </a>
+
+    <a href="https://github.com/abinayanehru/CODTECHTASK2" target="_blank" class="project-box">
+      <img src="media/project2.png" alt="Project 2">
+      <div class="project-description">
+        <strong>Content Management System</strong><br/>
+        A user-friendly platform for creating and managing digital content with seamless collaboration.
+      </div>
+    </a>
+
+    <a href="https://github.com/abinayanehru/Leave-Compass-App" target="_blank" class="project-box">
+      <img src="media/project3.png" alt="Project 3">
+      <div class="project-description">
+        <strong>Leave Compass App</strong><br/>
+        An Employee Leave Management App simplifies requesting, approving, and tracking leaves.
+      </div>
+    </a>
+
+    <a href="https://github.com/abinayanehru/Dino" target="_blank" class="project-box">
+      <img src="media/project4.png" alt="Project 3">
+      <div class="project-description">
+        <strong>Dino vs Dragon Game</strong><br/>
+       A Little Entertaining game - build with Python and Pygame technology and used json file to keep scores records.
+      </div>
+    </a>
+
+  </div>
+</section>
+
+  <!-- Footer Section -->
+  <footer style="background-color: #0e0e0e; padding: 60px 50px 30px; font-family: Arial, sans-serif; color: #7a8ca3; border-top: 1px solid #ccc;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+      
+      <!-- About -->
+      <div style="flex: 1; min-width: 250px;">
+        <h3 style="color: #fff; font-weight: bold; margin-bottom: 10px;">ABINAYA</h3>
+        <div style="width: 40px; height: 3px; background-color: #6c63ff; margin-bottom: 15px;"></div>
+        <p>Creating exceptional digital experiences that drive results and exceed expectations.</p>
+        <div style="margin-top: 20px; display: flex; gap: 15px;">
+          <a href="https://www.linkedin.com/in/abinaya-n-948027298/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/abinayanehru" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://mail.google.com/mail/?view=cm&to=abinaya12asm21@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div style="flex: 1; min-width: 200px;">
+        <h3 style="color: #fff; font-weight: bold; margin-bottom: 10px;">Quick Links</h3>
+        <div style="width: 40px; height: 3px; background-color: #6c63ff; margin-bottom: 15px;"></div>
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+          <li><a href="index.html" style="text-decoration: none; color: #7a8ca3;">Home</a></li>
+          <li><a href="bio.html" style="text-decoration: none; color: #7a8ca3;">About</a></li>
+          <li><a href="#projects" style="text-decoration: none; color: #7a8ca3;">Projects</a></li>
+          <li><a href="contact.html" style="text-decoration: none; color: #7a8ca3;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div style="flex: 1; min-width: 200px;">
+        <h3 style="color: #fff; font-weight: bold; margin-bottom: 10px;">Services</h3>
+        <div style="width: 40px; height: 3px; background-color: #6c63ff; margin-bottom: 15px;"></div>
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+          <li><a href="#" style="text-decoration: none; color: #7a8ca3;">Web Development</a></li>
+          <li><a href="#" style="text-decoration: none; color: #7a8ca3;">UI/UX Design</a></li>
+          <li><a href="#" style="text-decoration: none; color: #7a8ca3;">Testing</a></li>
+          <li><a href="#" style="text-decoration: none; color: #7a8ca3;">Marketing</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; font-size: 14px;">
+      © 2025@ ABINAYA. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', function () {
+      const arrow = document.getElementById('scrollArrow');
+      if (window.scrollY > 100) {
+        arrow.classList.add('hide-scroll');
+      } else {
+        arrow.classList.remove('hide-scroll');
+      }
+    });
+  </script>
+
+</body>
+</html>
